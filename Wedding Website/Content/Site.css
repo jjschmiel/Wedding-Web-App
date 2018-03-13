@@ -1,0 +1,288 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.index-title-position {
+    padding-top: 25px;
+}
+
+@media (max-width: 767px) {
+    .heart-glyphs {
+        font-size: 30px;
+        display: inline;
+        padding-top: 5px;
+    }
+
+    .cat-icon-nav {
+        display: none;
+    }
+
+    .cat-icon {
+        padding-bottom: 12px;
+        width: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .heart-glyphs {
+        font-size: 40px;
+        display: none;
+    }
+
+    .cat-icon {
+        display: none;
+        margin-bottom: 30px;
+        width: 30px;
+    }
+}
+
+.cat-icon-nav {
+    padding-top: 10px;
+    width: 30px;
+}
+
+@media (min-width: 768px) {
+    .nav-text {
+        font-size: 20px;
+    }
+}
+
+#index {
+    background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/LibbieHillLandscape.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+.index-mobile {
+    display: none;
+}
+
+#error {
+    background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/error.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+#honeyfund {
+    background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/LibbieHillSunset.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+#ourstory {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url("/Assets/Images/Byrd.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+#wherewhen {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url("/Assets/Images/backvmfa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+#photos {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url("/Assets/Images/RiverSunset.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+
+
+
+#rsvp {
+    background: url("/Assets/Images/cover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+}
+
+
+@media (max-width: 1024px) {
+    #index {
+        background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/LibbieHillLandscapeTablet.jpg");
+        background-size: cover;
+    }
+
+    #honeyfund {
+        background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/LibbieHillSunsetTablet.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    #rsvp {
+        background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/coverTablet.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    .index-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 576px){
+    
+}
+
+
+@media (max-width: 576px) {
+    html, #photos, #rsvp, #ourstory, #wherewhen {
+        height: 110%;
+    }
+
+    #index {
+        background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/LibbieHillLandscapeMobile.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    #honeyfund {
+        background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/LibbieHillSunsetMobile.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    #rsvp {
+        background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) ),url("/Assets/Images/Background/coverMobile.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+
+    }
+
+    .index-desktop {
+        display: none;
+    }
+
+    .index-mobile {
+        display: initial;
+    }
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+.photo {
+    margin: 10px;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.wherewhen {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) );
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .wherewhen {
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) );
+        align-items: center;
+        margin: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .flyer {
+        padding-bottom: 20px;
+    }
+
+    .zag {
+        display: none;
+    }
+}
+
+.panel {
+    background-color: transparent;
+}
+
+body {
+    font-family: 'Mukta', sans-serif;
+    color: #666;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 1.6em;
+    font-weight: 400;
+}
+
+.zag {
+    background-image: url(/Assets/Images/zag.png);
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 25px;
+    z-index: -1;
+    margin: 9px auto -35px auto;
+}
+
+.menu {
+    background-color: #f8f8f8;
+}
+
+@media (max-width: 1000px) {
+    .LargeStory {
+        display: none;
+    }
+
+    .SmallStory {
+        display: inline;
+    }
+}
+
+@media (min-width: 1001px) {
+    .LargeStory {
+        display: inline;
+    }
+
+    .SmallStory {
+        display: none;
+    }
+}

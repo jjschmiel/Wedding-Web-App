@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Photos";
+}
+
+<div>
+
+    <div class="index-title-position">
+        <hr />
+        <h1 class="cover-heading text-center">Photos</h1>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "beach" })"><img src="~/Assets/Images/JJAndLiz/beach.jpg" class="photo thumbnail"></a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "cabin" })"><img src="~/Assets/Images/JJAndLiz/cabin.jpg" class="photo thumbnail"></a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "wayne" })"><img src="~/Assets/Images/JJAndLiz/wayne.jpg" class="photo thumbnail"></a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "edel" })"><img src="~/Assets/Images/JJAndLiz/edel.jpg" class="photo thumbnail"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "fireplace" })"><img src="~/Assets/Images/JJAndLiz/fireplace.jpg" class="photo thumbnail"></a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "garden" })"><img src="~/Assets/Images/JJAndLiz/garden.jpg" class="photo thumbnail"></a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "nydeli" })"><img src="~/Assets/Images/JJAndLiz/nydeli.jpg" class="photo thumbnail"></a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "photobooth" })"><img src="~/Assets/Images/JJAndLiz/photobooth.jpg" class="photo thumbnail"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "southern" })"><img src="~/Assets/Images/JJAndLiz/southern.jpg" class="photo thumbnail"></a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "vineyard" })"><img src="~/Assets/Images/JJAndLiz/vineyard.jpg" class="photo thumbnail"></a>
+        </div>
+        
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("Photo", "Home", new { id = "dancing" })"><img src="~/Assets/Images/JJAndLiz/dancing.jpg" class="photo thumbnail"></a>
+        </div>
+    </div>
+</div>
+

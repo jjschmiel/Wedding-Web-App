@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RSVP.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdditionalRSVP">
+          <Key>
+            <PropertyRef Name="AdditionalRSVPId" />
+          </Key>
+          <Property Name="AdditionalRSVPId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RSVPId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="320" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+          <Property Name="Response" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RSVP">
+          <Key>
+            <PropertyRef Name="RSVPId" />
+          </Key>
+          <Property Name="RSVPId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LasttName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="320" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="7" />
+          <Property Name="Response" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="3000" />
+        </EntityType>
+        <Association Name="FK_AdditionalRSVP_ToRSVP">
+          <End Role="RSVP" Type="Self.RSVP" Multiplicity="1" />
+          <End Role="AdditionalRSVP" Type="Self.AdditionalRSVP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RSVP">
+              <PropertyRef Name="RSVPId" />
+            </Principal>
+            <Dependent Role="AdditionalRSVP">
+              <PropertyRef Name="RSVPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RSVPStoreContainer">
+          <EntitySet Name="AdditionalRSVP" EntityType="Self.AdditionalRSVP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RSVP" EntityType="Self.RSVP" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AdditionalRSVP_ToRSVP" Association="Self.FK_AdditionalRSVP_ToRSVP">
+            <End Role="RSVP" EntitySet="RSVP" />
+            <End Role="AdditionalRSVP" EntitySet="AdditionalRSVP" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RSVP" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdditionalRSVP">
+          <Key>
+            <PropertyRef Name="AdditionalRSVPId" />
+          </Key>
+          <Property Name="AdditionalRSVPId" Type="Int32" Nullable="false" />
+          <Property Name="RSVPId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RSVP" Relationship="Self.FK_AdditionalRSVP_ToRSVP" FromRole="AdditionalRSVP" ToRole="RSVP" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+          <Property Name="Response" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RSVP">
+          <Key>
+            <PropertyRef Name="RSVPId" />
+          </Key>
+          <Property Name="RSVPId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LasttName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="true" />
+          <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AdditionalRSVPs" Relationship="Self.FK_AdditionalRSVP_ToRSVP" FromRole="RSVP" ToRole="AdditionalRSVP" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="7" />
+          <Property Name="Response" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_AdditionalRSVP_ToRSVP">
+          <End Role="RSVP" Type="Self.RSVP" Multiplicity="1" />
+          <End Role="AdditionalRSVP" Type="Self.AdditionalRSVP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RSVP">
+              <PropertyRef Name="RSVPId" />
+            </Principal>
+            <Dependent Role="AdditionalRSVP">
+              <PropertyRef Name="RSVPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Wedding_DataEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdditionalRSVPs" EntityType="Self.AdditionalRSVP" />
+          <EntitySet Name="RSVPs" EntityType="Self.RSVP" />
+          <AssociationSet Name="FK_AdditionalRSVP_ToRSVP" Association="Self.FK_AdditionalRSVP_ToRSVP">
+            <End Role="RSVP" EntitySet="RSVPs" />
+            <End Role="AdditionalRSVP" EntitySet="AdditionalRSVPs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RSVPStoreContainer" CdmEntityContainer="Wedding_DataEntities1">
+          <EntitySetMapping Name="AdditionalRSVPs">
+            <EntityTypeMapping TypeName="RSVP.AdditionalRSVP">
+              <MappingFragment StoreEntitySet="AdditionalRSVP">
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AdditionalRSVPId" ColumnName="AdditionalRSVPId" />
+                <ScalarProperty Name="RSVPId" ColumnName="RSVPId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RSVPs">
+            <EntityTypeMapping TypeName="RSVP.RSVP">
+              <MappingFragment StoreEntitySet="RSVP">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="RSVPId" ColumnName="RSVPId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LasttName" ColumnName="LasttName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

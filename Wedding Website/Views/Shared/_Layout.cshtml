@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html id="@ViewBag.BodyID">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - JJ + Liz</title>
+    <script src="https://cdn.logrocket.io/LogRocket.min.js" crossorigin="anonymous"></script>
+    <script>window.LogRocket && window.LogRocket.init('mf7huu/wedding-web-application');</script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body id="@ViewBag.BodyID"  >
+    <div class="navbar navbar-default navbar-fixed-top">
+        
+        <div class="zag"></div>
+            <div class="container">
+                <div class="col-md-2 col-sm-2 col-lg-3"></div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <span class="glyphicon glyphicon-heart heart-glyphs heart1" style="color: lightgray; top:4px;" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-heart heart-glyphs heart1" style="color: green; top:4px; display:none" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-heart-empty heart-glyphs" style="color: lightgray; top:4px;" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-heart heart-glyphs" style="color: lightgray; top:4px;" aria-hidden="true"></span>
+                    <img class="cat-icon" src="~/Assets/Images/WhiteCat.png" aria-hidden="true" />
+                    <img class="cat-icon" src="~/Assets/Images/BlackCat.png" aria-hidden="true" />
+                    <span class="glyphicon glyphicon-heart-empty heart-glyphs" style="color: gray; top:4px;" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-heart heart-glyphs" style="color: gray; top:4px;" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-heart-empty heart-glyphs" style="color: gray; top:4px;" aria-hidden="true"></span>
+
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav menu">
+                        <li class="nav-spacing"><img class="cat-icon-nav" src="~/Assets/Images/WhiteCat.png" aria-hidden="true" /></li>
+
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Honey Fund (Registry)", "HoneyFund", "Home")</li>
+                        <li>@Html.ActionLink("Our Story", "OurStory", "Home")</li>
+                        <li>@Html.ActionLink("Photos", "Photos", "Home")</li>
+                        <li>@Html.ActionLink("Where/When", "WhereWhen", "Home")</li>
+                        <li>@Html.ActionLink("RSVP", "RSVP", "RSVP")</li>
+                        <li><img class="cat-icon-nav" src="~/Assets/Images/BlackCat.png" aria-hidden="true" /></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - JJ + Liz</p>
+        </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

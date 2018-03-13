@@ -1,0 +1,93 @@
+﻿@model Wedding_Website.Models.RSVP
+@{
+    ViewBag.Title = "RSVP";
+}
+
+<body class="background-image">
+
+    <div class="index-title-position">
+        <hr />
+        <h1 class="cover-heading text-center">RSVP</h1>
+        <hr />
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LasttName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LasttName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LasttName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Response, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="custom-control custom-radio">
+                        @Html.RadioButtonFor(model => model.Response, "I'll be there!", new { htmlAttributes = new { @class = "custom-control-input" } })
+                        I'll be there!  Can't wait!<br />
+                    </div>
+                    <div class="custom-control custom-radio">
+                        @Html.RadioButtonFor(model => model.Response, "Unfortunately have to miss.", new { htmlAttributes = new { @class = "custom-control-input" } })Unfortunately, I can't make it.
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Response, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Comment, new { @rows = 4, @cols = 40, @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.ValidationMessageFor(model => model.AdditionalRSVPs, "", new { @class = "text-danger" })
+            <div id="AdditionalRSVPHolder">
+
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2"></label>
+                <div class="col-md-10">
+                    <button type="button" id="AddRSVP" class="btn">Click here to <br />add additional guests</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="g-recaptcha" data-sitekey="6Lf5fEgUAAAAAOV0KFlo38tqU9X9CBpRp3JYWlc8"></div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>

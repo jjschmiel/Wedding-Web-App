@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Wedding_Website.Models;
+using System.Net.Mail;
 
 namespace Wedding_Website.Controllers
 {
@@ -24,7 +25,7 @@ namespace Wedding_Website.Controllers
             ViewBag.BodyID = "rsvp";
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RSVP([Bind(Include = "RSVPId,FirstName,LasttName,Email,Comment,Response")] RSVP rSVP, AdditionalRSVP[] additionalRSVP)
@@ -41,7 +42,83 @@ namespace Wedding_Website.Controllers
                 db.RSVPs.Add(rSVP);
                 db.SaveChanges();
 
-                
+                ///////////////
+                //Email guest RSVP confirmation
+                ///////////////
+
+                //if (rSVP.Email != null)
+                //{
+                //    const String FROM = "no-reply@jjandliz.com";
+                //    const String FROMNAME = "JJ and Liz";
+
+                //    String TO = rSVP.Email;
+
+                //    const String SMTP_USERNAME = "********";
+
+                //    const String SMTP_PASSWORD = "********";
+
+                //    const String HOST = "********";
+
+                //    const int PORT = 587;
+
+                //    String SUBJECT = "JJ + Liz RSVP Confirmation";
+
+                //    // The body of the email
+                //    String BODY =
+                //        "<h1>Thanks for RSVPing!</h1>" +
+                //        "<p>RSVP Confirmation:" +
+                //        "<br />Name: " + rSVP.FirstName + " " + rSVP.LasttName +
+                //        "<br />Response: " + rSVP.Response +
+                //        "<br />Received on: " + rSVP.CreatedDate +
+                //        "<br />Comment: " + rSVP.Comment +
+                //        "<p>";
+
+
+                //    if (additionalRSVP != null)
+                //    {
+
+                //        BODY = BODY + "<p>Additonal Guests: ";
+
+                //        foreach (var item in additionalRSVP)
+                //        {
+                //            BODY = BODY +
+                //            "<br />Name: " + item.FirstName + " " + item.LastName +
+                //            "<br />Email: " + item.Email +
+                //            "<br />Response: " + item.Response +
+                //            "<p>";
+
+                //        }
+                //    };
+
+                //    // Create and build a new MailMessage object
+                //    MailMessage message = new MailMessage();
+                //    message.IsBodyHtml = true;
+                //    message.From = new MailAddress(FROM, FROMNAME);
+                //    message.To.Add(new MailAddress(TO));
+                //    message.Subject = SUBJECT;
+                //    message.Body = BODY;
+                //    SmtpClient client =
+                //        new SmtpClient(HOST, PORT);
+
+                //    client.Credentials =
+                //        new NetworkCredential(SMTP_USERNAME, SMTP_PASSWORD);
+
+                //    client.EnableSsl = true;
+
+                //    // Send the email. 
+                //    try
+                //    {
+                //        System.Diagnostics.Trace.WriteLine("Attempting to send email...");
+                //        client.Send(message);
+                //        System.Diagnostics.Trace.WriteLine("Email sent!");
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        System.Diagnostics.Trace.WriteLine("The email was not sent.");
+                //        System.Diagnostics.Trace.WriteLine("Error message: " + ex.Message);
+                //    }
+                //}
+
                 //The if statement below checks to see if there are any additional RSVPs added to the main RSVP.
                 //If they're additional RSVPs, add each to the database. If not, move on.
                 if (additionalRSVP != null)
@@ -59,9 +136,67 @@ namespace Wedding_Website.Controllers
                         };
                         db.AdditionalRSVPs.Add(rsvp);
                         db.SaveChanges();
+
+                        ////////////
+                        //Email additional guest RSVP confirmation
+                        ////////////
+
+                        //if (item.Email != null)
+                        //{
+                        //    String FROM = "no-reply@jjandliz.com";
+                        //    String FROMNAME = "JJ and Liz";
+                        //    string TO = item.Email;
+                        //    string SUBJECT = rSVP.FirstName + " " + rSVP.LasttName + " has RSVP'd you for JJ and Liz's wedding!";
+
+                        //    const String SMTP_USERNAME = "********";
+
+                        //    const String SMTP_PASSWORD = "*****";
+
+                        //    const String HOST = "*****";
+
+                        //    const int PORT = 587;
+
+                        //    // The body of the email
+                        //    string BODY =
+                        //        "<h1>You've been RSVPd for by " + rSVP.FirstName + " " + rSVP.LasttName + ".  Thanks, " + rSVP.FirstName + "!</h1>" +
+                        //        "<p>Your RSVP Confirmation:" +
+                        //        "<br />Name: " + item.FirstName + " " + item.LastName +
+                        //        "<br />Response: " + item.Response +
+                        //        "<p>" + rSVP.FirstName + "'s RSVP: " +
+                        //        "<br />Name: " + rSVP.FirstName + " " + rSVP.LasttName +
+                        //        "<br />Response: " + rSVP.Response;
+
+                        //    // Create and build a new MailMessage object
+                        //    MailMessage message = new MailMessage();
+                        //    message.IsBodyHtml = true;
+                        //    message.From = new MailAddress(FROM, FROMNAME);
+                        //    message.To.Add(new MailAddress(TO));
+                        //    message.Subject = SUBJECT;
+                        //    message.Body = BODY;
+                        //    SmtpClient client =
+                        //        new SmtpClient(HOST, PORT);
+
+                        //    client.Credentials =
+                        //        new NetworkCredential(SMTP_USERNAME, SMTP_PASSWORD);
+
+                        //    client.EnableSsl = true;
+
+                        //    // Send the email. 
+                        //    try
+                        //    {
+                        //        System.Diagnostics.Trace.WriteLine("Attempting to send email...");
+                        //        client.Send(message);
+                        //        System.Diagnostics.Trace.WriteLine("Email sent!");
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
+                        //        System.Diagnostics.Trace.WriteLine("The email was not sent.");
+                        //        System.Diagnostics.Trace.WriteLine("Error message: " + ex.Message);
+                        //    }
+                        //}
                     }
                 }
-                
+
                 return RedirectToAction("Confirmation");
             }
 
